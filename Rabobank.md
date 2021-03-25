@@ -78,82 +78,82 @@
    ![Alt Text](/img/Process-Model.PNG)
 
    En el diagrama vemos las frecuencias de las actividades y sus transiciones. En una primera mirada, vemos las actividades que más se realizan son:
-   
-    * Open
-    * Assignment
-    * Operator Update
-    * Status Change
-    * Reassignment
-    * Close
 
-    Primer análisis que realizaremos es buscar actividades críticas y recursos críticos.
+  * Open
+  * Assignment
+  * Operator Update
+  * Status Change
+  * Reassignment
+  * Close
 
-    ![Alt Text](/img/Process-Activity-Breakdown.PNG)
+  Primer análisis que realizaremos es buscar actividades críticas y recursos críticos.
 
-    Contamos con unas gráficas predeterminadas para analizar el comportamiento de actividades y recursos para determinar posibles cuellos de botellas para proponer posibles mejoras.
+  ![Alt Text](/img/Process-Activity-Breakdown.PNG)
 
-    Hasta ahora, tenemos valores esperados para un proceso de Incidencia.
+  Contamos con unas gráficas predeterminadas para analizar el comportamiento de actividades y recursos para determinar posibles cuellos de botellas para proponer posibles mejoras.
 
-    ![Alt Text](/img/Process-Dashboards.PNG)
+  Hasta ahora, tenemos valores esperados para un proceso de Incidencia.
 
-    La herramienta nos muestra dos puntos de atención: Recurso TEAM008 y Actividad "Assignment"
+  ![Alt Text](/img/Process-Dashboards.PNG)
 
-    Veamos donde están la mayor cantidad de retrabajos.
+  La herramienta nos muestra dos puntos de atención: Recurso TEAM008 y Actividad "Assignment"
 
-    ![Alt Text](/img/Process-Rework.PNG)
+  Veamos donde están la mayor cantidad de retrabajos.
 
-    Las asignaciones, con un 86% de cobertura, tienden a repetirse 4,6 veces en promedio dentro de una incidencia. En la cadena vemos que se hace por reasignación (Asignación > Actualización operador > Reasignación). Acá __hemos detectado que en promedio, ocurren 4 reasignaciones por incidencia__.
+  ![Alt Text](/img/Process-Rework.PNG)
 
-    Revisemos el impacto en tiempo de espera entre actividaes. En nuestro archivo de eventos no contamos con duración de la tarea, es normal que esa condición se de. En nuestro caso sabemos que una actividad espera por otra viendo los tiempos de inicios entre ellas. En promedio, los impactos en espera se ven en el modelo de esta información
+  Las asignaciones, con un 86% de cobertura, tienden a repetirse 4,6 veces en promedio dentro de una incidencia. En la cadena vemos que se hace por reasignación (Asignación > Actualización operador > Reasignación). Acá __hemos detectado que en promedio, ocurren 4 reasignaciones por incidencia__.
 
-    ![Alt Text](/img/Process-Waiting-Time.PNG)
+  Revisemos el impacto en tiempo de espera entre actividaes. En nuestro archivo de eventos no contamos con duración de la tarea, es normal que esa condición se de. En nuestro caso sabemos que una actividad espera por otra viendo los tiempos de inicios entre ellas. En promedio, los impactos en espera se ven en el modelo de esta información
 
-    Hacemos foco en la actividad "Customer Update" y como influye en los tiempos de la actividad de Asignación
+  ![Alt Text](/img/Process-Waiting-Time.PNG)
 
-    ![Alt Text](/img/CustomerUpdate-Reworks.PNG)
+  Hacemos foco en la actividad "Customer Update" y como influye en los tiempos de la actividad de Asignación
 
-    Vemos que en la línea de retabajos afecta de forma importante en los tiempos de resolución del proceso
+  ![Alt Text](/img/CustomerUpdate-Reworks.PNG)
 
-    Cuando revisamos el impacto de la actividad, en particular los casos fueras de SLA, vemos que la mayor interacción proviene de las Aplicaciones Web
+  Vemos que en la línea de retabajos afecta de forma importante en los tiempos de resolución del proceso
 
-    ![Alt Text](/img/UpdateCustomer-Impact.PNG)
+  Cuando revisamos el impacto de la actividad, en particular los casos fueras de SLA, vemos que la mayor interacción proviene de las Aplicaciones Web
 
-    __En Resumen__: La mayor afectación se produce por reasignaciones donde impactan los tiempos de respuesta del cliente. El recurso crítico es TEAM008
+  ![Alt Text](/img/UpdateCustomer-Impact.PNG)
 
-    4. __Análisis__
+  __En Resumen__: La mayor afectación se produce por reasignaciones donde impactan los tiempos de respuesta del cliente. El recurso crítico es TEAM008
 
-    Lo primero que haremos es generar un modelo BPMN de nuestro proceso, para ello mantendremos los criterios de 70% de actividades y 1% de relaciones.
+  4. __Análisis__
 
-    El resultado arrojado por la herramienta es UpdateCustomer
+  Lo primero que haremos es generar un modelo BPMN de nuestro proceso, para ello mantendremos los criterios de 70% de actividades y 1% de relaciones.
 
-    ![ALt Text](/img/Process-BPMN.PNG)
+  El resultado arrojado por la herramienta es UpdateCustomer
 
-    El BPMN generado está en [este enlace](/assets/Rabobank_itil_V1.PNG)
+  ![ALt Text](/img/Process-BPMN.PNG)
 
-    De las reglas obtenidas nos fijamos en los casos para aplicaciones Web.
+  El BPMN generado está en [este enlace](/assets/Rabobank_itil_V1.PNG)
 
-    * Reasignaciones
+  De las reglas obtenidas nos fijamos en los casos para aplicaciones Web.
 
-    ![Alt Text](/img/Reassignment-Rules.PNG)
+  * Reasignaciones
 
-    * Asignaciones:
+  ![Alt Text](/img/Reassignment-Rules.PNG)
 
-    ![Alt Text](/img/Assignment-Rules.PNG)
+  * Asignaciones:
 
-    * Actualización del Cliente:
+  ![Alt Text](/img/Assignment-Rules.PNG)
 
-    ![Alt Text](/img/UpdateCustomer-Rules-Migrants.PNG)
+  * Actualización del Cliente:
 
-    También podemos hacer un análisis de colaboración por actividad para detectar interlocutores para procesos de automatización
+  ![Alt Text](/img/UpdateCustomer-Rules-Migrants.PNG)
 
-    ![Alt Text](/img/Reassignment-Social.PNG)
+  También podemos hacer un análisis de colaboración por actividad para detectar interlocutores para procesos de automatización
 
-    Del análisis del impacto sobre los recursos y las colaboraciones que hay entre los equipos, podemos revisar el diagrama de colaboración que se generar
+  ![Alt Text](/img/Reassignment-Social.PNG)
 
-    ![Alt Text](/img/Team-Colaboration.PNG)
+  Del análisis del impacto sobre los recursos y las colaboraciones que hay entre los equipos, podemos revisar el diagrama de colaboración que se generar
 
-    5. __Resumen__
+  ![Alt Text](/img/Team-Colaboration.PNG)
 
-    Vimos como utilizar la herramienta de minería de datos para generar un modelo de negocio utilizando los logs de los sistemas involucrados en el proceso. De este modelo pudimos visualizar cuellos de botella, tantos de actividades críticas como de recursos críticos. Con esa primera mirada, podemos indicar que la afectación mayor en las incidencias ocurren en ciclos de reasignación y actualización por parte del cliente
+  5. __Resumen__
 
-    Con el modelo generado, podemos proponer un proyecto de automatización para producir ganancias que impacten en tiempo y dinero. Queda para otro taller, hacer simulaciones para mostrar como es el impacto.
+  Vimos como utilizar la herramienta de minería de datos para generar un modelo de negocio utilizando los logs de los sistemas involucrados en el proceso. De este modelo pudimos visualizar cuellos de botella, tantos de actividades críticas como de recursos críticos. Con esa primera mirada, podemos indicar que la afectación mayor en las incidencias ocurren en ciclos de reasignación y actualización por parte del cliente
+
+  Con el modelo generado, podemos proponer un proyecto de automatización para producir ganancias que impacten en tiempo y dinero. Queda para otro taller, hacer simulaciones para mostrar como es el impacto.

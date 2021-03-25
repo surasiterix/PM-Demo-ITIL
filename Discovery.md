@@ -18,7 +18,7 @@ Las disciplinas involucradas en esta primera etapa son:
 como se realiza hoy día. Es relevado de las trazas de los
 sistemas involucrados.
 
-* __Minería de taras__: Captura de las tareas realizadas por
+* __Minería de tareas__: Captura de las tareas realizadas por
 los participantes de los procesos. Esta, consiste en tomar
 los tiempos para poder calcular el esfuerzo que cada tarea toma.
 

@@ -78,7 +78,7 @@
    ![Alt Text](/img/Process-Model.PNG)
 
    En el diagrama vemos las frecuencias de las actividades y sus transiciones. En una primera mirada, vemos las actividades que más se realizan son:
-
+   
     * Open
     * Assignment
     * Operator Update

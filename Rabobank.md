@@ -67,7 +67,7 @@
 
    ![Alt Text](/img/Dashboard-Eventos.PNG)
 
-   El archivo de eventos utilizado está disponible en [este enlace](/assets/EventLog.csv)
+   El archivo de eventos utilizado está disponible en [este enlace](/assets/EventLog.zip)
 
    Definimos los campos necesarios en el mapeo de datos del log para ser procesado por la herramienta
 
